@@ -1,0 +1,18 @@
+int resilientSubarray(vector<int>& nums, int k) {
+        int n = nums.size();
+        int i = 0;
+        int ans = 1;
+        while(i<n){
+            int st = i;
+            int em = nums[i]%k;
+            int sum = 0;
+            while(i<n && nums[i]%k==em){
+                sum += nums[i];
+                if(sum%k==em){
+                    ans = max(ans, i-st+1);
+                }
+                i++;
+            }
+        }
+        return ans;
+    }
