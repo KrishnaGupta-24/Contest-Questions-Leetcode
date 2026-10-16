@@ -1,0 +1,11 @@
+int resilientSubarray(vector<int>& nums, int k) {
+        int n=nums.size(),best=0;
+        for(int i=0;i<n;){
+            int rem=nums[i]%k,j=i;
+            while(j<n && nums[j]%k==rem)j++;
+            int len=j-i,step=k/gcd(rem,k);
+            best=max(best,1+(len-1)/step*step);
+            i=j;
+        }
+        return best;
+    }
