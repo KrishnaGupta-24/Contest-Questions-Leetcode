@@ -1,0 +1,13 @@
+int minDeletions(vector<int>& nums) {
+        int n=nums.size();
+        int del=0;
+        for(int i=1;i<n;i++){
+            if(nums[i]==nums[i-1]){
+                del++;
+            }
+            else{
+                nums[i-del]=nums[i];
+            }
+        }
+    return del;
+    }
